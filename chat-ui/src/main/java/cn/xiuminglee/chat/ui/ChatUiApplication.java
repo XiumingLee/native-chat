@@ -1,7 +1,7 @@
 package cn.xiuminglee.chat.ui;
 
-import cn.xiuminglee.chat.ui.view.login.LoginController;
-import cn.xiuminglee.chat.ui.view.login.LoginMethod;
+import cn.xiuminglee.chat.ui.view.chat.ChatController;
+import cn.xiuminglee.chat.ui.view.chat.ChatMethod;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -16,11 +16,9 @@ public class ChatUiApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        LoginMethod login = new LoginController((userId, userPassword) -> {
-            LOG.info("登陆 userId：{},userPassword：{}",userId,userPassword);
-        });
+        ChatMethod chat = new ChatController();
 
-        login.doShow();
+        chat.doShow();
         LOG.info("程序启动完成！");
     }
 }
