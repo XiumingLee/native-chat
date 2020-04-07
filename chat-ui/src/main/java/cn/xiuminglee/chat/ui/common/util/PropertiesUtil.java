@@ -1,4 +1,7 @@
-package cn.xiuminglee.chat.ui.common;
+package cn.xiuminglee.chat.ui.common.util;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,11 +10,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 /**
  * @Author: Xiuming Lee
- * @Date: 2019/11/8 15:40
- * @Version 1.0
- * @Describe:
  */
 public class PropertiesUtil {
+
+    private static final Logger LOG = LoggerFactory.getLogger(PropertiesUtil.class);
 
     private static Properties props;
 
@@ -23,7 +25,7 @@ public class PropertiesUtil {
             assert inputStream != null;
             props.load(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         } catch (IOException e) {
-            System.out.println("配置文件读取异常" + e.getMessage());
+            LOG.error("配置文件读取异常!",e);
         }
     }
 
